@@ -1,0 +1,17 @@
+{
+  "name": "propeller-qa-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "cypress:open": "cypress open",
+  "test": "cypress run",
+  "test:headed": "cypress run --headed --browser chrome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^15.0.0"
+  }
+}
