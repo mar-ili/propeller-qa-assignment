@@ -1,4 +1,3 @@
-# .github/workflows/cypress.yml
 name: Cypress Pipeline
 
 on:
@@ -20,14 +19,20 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: 'npm'
 
       - name: Install deps
         run: npm ci
 
+      # (optional) Cache Cypress binary to speed up cold runs
+      - name: Cache Cypress
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
       - name: Run Cypress
         uses: cypress-io/github-action@v6
         with:
-          command: npm test           # runs "cypress run"
-          # or: command: npx cypress run
+          command: npm test   # runs "cypress run"
