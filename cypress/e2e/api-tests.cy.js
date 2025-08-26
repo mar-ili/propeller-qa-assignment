@@ -43,7 +43,7 @@ describe('GraphQL API Tests for Users and Albums', () => {
         `,
         variables: {
           input: {
-            name: "Test User",
+            name: "Kire",
             username: "testuser123",
             email: "test@example.com",
           },
@@ -52,7 +52,7 @@ describe('GraphQL API Tests for Users and Albums', () => {
     }).then((response) => {
       expect(response.status).to.eq(200)
       expect(response.body.data.createUser).to.have.property('id')
-      expect(response.body.data.createUser.name).to.eq("Test User")
+      expect(response.body.data.createUser.name).to.eq("Kire")
     })
   })
 
